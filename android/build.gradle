@@ -13,14 +13,7 @@ rootProject.allprojects {
     repositories {
         google()
         mavenCentral()
-    }
-}
-
-allprojects {
-    repositories {
-        maven {
-          url = file("$rootDir/repository")
-        }
+        maven { url 'https://jitpack.io' }
     }
 }
 
@@ -56,9 +49,10 @@ android {
 }
 
 dependencies {
-    configurations.implementation {
+	configurations.implementation {
         exclude group: "com.arthenica", module: "ffmpeg-kit-https"
     }
-    implementation "com.local.ffmpeg-kit:full_binary:6.0-2"
     implementation 'androidx.annotation:annotation:1.5.0'
+	implementation 'com.arthenica:smart-exception-java:0.2.1'
+    implementation 'com.github.meetleev.ffmpeg-kit-prebuilt:ffmpeg-kit-min-gpl:6.0.3.4'
 }
