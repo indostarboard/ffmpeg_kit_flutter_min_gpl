@@ -13,8 +13,13 @@ rootProject.allprojects {
     repositories {
         google()
         mavenCentral()
+    }
+}
+
+allprojects {
+    repositories {
         maven {
-          url = project(':app').file('repository')
+          url = file("$rootDir/repository")
         }
     }
 }
