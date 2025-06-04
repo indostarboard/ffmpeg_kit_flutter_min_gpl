@@ -13,6 +13,9 @@ rootProject.allprojects {
     repositories {
         google()
         mavenCentral()
+        maven {
+          url = project(':app').file('repository')
+        }
     }
 }
 
@@ -48,6 +51,9 @@ android {
 }
 
 dependencies {
+    configurations.implementation {
+        exclude group: "com.arthenica", module: "ffmpeg-kit-https"
+    }
+    implementation "com.local.ffmpeg-kit:full_binary:6.0-2"
     implementation 'androidx.annotation:annotation:1.5.0'
-    implementation 'com.arthenica:ffmpeg-kit-https:6.0-2'
 }
